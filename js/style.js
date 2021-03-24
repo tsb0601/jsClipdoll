@@ -12,7 +12,7 @@ var d_topH;//获取娃娃框 高度
 var paw_line;//定义爪子长度
 var paw_handl;//定义左边单支爪子
 var paw_handr;//定义右边单支爪子
-var intA;//定义爪子的高度 
+var intA;//定义爪子的高度
 var goresult;//定义抽取结果
 var dropp;
 var butgo;
@@ -34,11 +34,11 @@ function onload(){
 	paw_handr = $('.paw_handr');//获取左支爪子
 	intA = parseInt(paw_handl.width());
 	goresult = $('.goresult');
-	light_lW = parseInt($('.light_l').width());  
+	light_lW = parseInt($('.light_l').width());
 	paw.height(d_topH*0.82);
 	paw_line.css({height:d_topH*0.07});//初始化爪子高度
 	butgo = $('.doll_but_go');
-	dropp =$('.dropgif p');  
+	dropp =$('.dropgif p');
 	toy = $('.toy');
 	pop_bg = $('.pop_bg');
 	pop = $('.pop');
@@ -51,8 +51,8 @@ function light(){
 	line_s.width(light_lW);
 	line_s.height(light_lW);
 	line_y.width(light_lW);
-	line_y.height(light_lW); 
-	lightgo();  
+	line_y.height(light_lW);
+	lightgo();
 	addtoy();
 }
 
@@ -71,21 +71,21 @@ function lightgo(){//两边闪烁的灯光
 		//n++;
 		///m++;
 		//if(n>8)n=0;if(m>8)m=0;
-		
+
 		//n=8
 		n = parseInt(8*Math.random());
 		m = parseInt(8*Math.random());
-		 
+
 		var light_ltop = parseInt(l_top[n].onetop);
 		var light_rtop = parseInt(l_top[m].onetop);
-		
+
 		line_s.css({top:light_ltop+'px','background-position':"-"+4+"px -"+light_ltop+"px"});
-		
+
 		line_y.css({top:light_rtop+'px','background-position':"-"+4+"px -"+light_rtop+"px"});
-		
+
 		setTimeout(lightgo,300);
-		
-		//console.log(m); 
+
+		//console.log(m);
 	}
 
 
@@ -100,14 +100,14 @@ function timego(){//倒计时
 		return false;
 	}
 	timespan.children().remove();
-	timespan.append("<img src='img/machine"+ tcount +".png'/>"); 
+	timespan.append("<img src='img/machine"+ tcount +".png'/>");
 	timespan.children().animate({'width':'20%'});
 	setTimeout(timego,1000);
 	//console.log(timespan);
 }
 
 function machine(){
-	
+
 	paw.animate({left:'50%'},1000,function(){
 		paw.animate({top:'10%',width:'10%'},1000,function(){
 			paw_line.animate({height:d_topH*0.4},1000,function(){
@@ -115,13 +115,13 @@ function machine(){
 				paw_handr.addClass('paw_handr_go');
 				setTimeout(goresultac,1000);
 			});
-			
+
 		});
-		
+
 		//console.log(d_topH);
-		
+
 	});
-	
+
 }
 
 function goresultac(){
@@ -138,15 +138,15 @@ function goresultac(){
 					setTimeout(dropan,500);
 					//dropan();
 				});
-				
+
 			});
 			goresult.css({top:-intB});
 			goresult.animate({top:-intA},1000);
-		}); 
-		
+		});
+
 	});
 	//console.log(goresult.children('img'))//paw_handl.width()
-	
+
 }
 
 function dropan(){
@@ -170,7 +170,7 @@ function addtoy(){
 	for(var i=27;i<47;i++){
 		var toyx =Math.random()*(x*0.7-x*0.35)+x*0.35;
 		var toyy =Math.random()*y*0.2;
-		//var 
+		//var
 		 if(i>30) toy_box.css({'z-index':'9'});
 		var toy_box = $("<img style='left:"+toyx+"px;bottom:"+toyy+"px;' src='img/machine" + i +".png'/>");
 		toy_box.appendTo(toy);
@@ -178,8 +178,8 @@ function addtoy(){
 	for(var i=37;i<45;i++){
 		var toylx =Math.random()*(x*0.5-x*0.1)+x*0.1;
 		var toyly =Math.random()*(y*0.3-y*0.25)+y*0.25;
-		//var 
-		 
+		//var
+
 		var toy_box = $("<img style='left:"+toylx+"px;bottom:"+toyly+"px;' src='img/machine" + i +".png'/>");
 		toy_box.appendTo(toy);
 	}
@@ -189,9 +189,9 @@ function addtoy(){
 function popan(){
 	pop.fadeIn(function(){
 		pop_bg.animate({top:'50%'});
-	}) 
+	})
 }
 function popanint(){//重置弹窗
 	pop_bg.css({top:'-600px'});
-	pop.fadeOut() 
+	pop.fadeOut()
 }
